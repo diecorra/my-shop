@@ -1,4 +1,9 @@
-import { selectTotalCartItems, useCart, useCartPanel } from '@/services/cart';
+import {
+  selectCartIsEmpty,
+  selectTotalCartItems,
+  useCart,
+  useCartPanel,
+} from '@/services/cart';
 import { NavLink } from 'react-router-dom';
 import logo from '../../../assets/laptop.png';
 import { CartPanel } from './CartPanel';
@@ -11,6 +16,7 @@ export function NavBar() {
   const isCartPanelOpened = useCartPanel((state) => state.open);
   const toggleCartPanel = useCartPanel((state) => state.toggle);
   const totalCartItems = useCart(selectTotalCartItems);
+  const isEmpty = useCart(selectCartIsEmpty);
 
   return (
     <div className="fixed top-0 left-0 right-0 shadow-2xl z-10">
@@ -25,7 +31,11 @@ export function NavBar() {
 
         {/*Cart button badge*/}
         <div>
-          <button className="btn accent lg" onClick={toggleCartPanel}>
+          <button
+            disabled={isEmpty}
+            className="btn accent lg"
+            onClick={toggleCartPanel}
+          >
             Cart: {totalCartItems}
           </button>
         </div>
