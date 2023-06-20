@@ -1,10 +1,5 @@
-import {
-  NavLink,
-  Navigate,
-  BrowserRouter,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { NavBar, PrivateRoute } from '@/shared/index';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import {
   CMSOrdersPage,
   CMSPage,
@@ -15,7 +10,6 @@ import {
   ShopPage,
   ThanksPage,
 } from './features';
-import { NavBar } from '@/shared/index';
 
 function App() {
   return (
@@ -29,7 +23,14 @@ function App() {
           <Route path="checkout" element={<CheckoutPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="thankyou" element={<ThanksPage />} />
-          <Route path="cms" element={<CMSPage />}>
+          <Route
+            path="cms"
+            element={
+              <PrivateRoute>
+                <CMSPage />
+              </PrivateRoute>
+            }
+          >
             <Route path="products" element={<CMSProductsPage />} />
             <Route path="orders" element={<CMSOrdersPage />} />
             <Route path="" element={<Navigate to="products" />} />
