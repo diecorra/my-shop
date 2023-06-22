@@ -1,27 +1,44 @@
 import { Product } from '@/model/product';
-import { pb } from '@/pocketbase';
+import { get } from '@/services/products/products.api';
 import { useReducer } from 'react';
 
-function productsReducer(state: any, action: any) {
+export interface ProductsState {
+  products: Product[];
+  pending: boolean;
+}
+
+export type ProductsGetSuccess = {
+  type: 'productsGetSuccess';
+  payload: Product[];
+};
+
+export type Pending = {
+  type: 'pending';
+  payload: boolean;
+};
+
+export type ProductsActions = Pending | ProductsGetSuccess;
+
+function productsReducer(state: ProductsState, action: ProductsActions) {
   switch (action.type) {
     case 'pending':
       return { ...state, pending: action.payload };
-    case 'getProductsSuccess':
+    case 'productsGetSuccess':
       return { pending: false, products: action.payload };
   }
 
   return state;
 }
 
-export const initialState = { pending: false, products: [] };
+export const initialState: ProductsState = { pending: false, products: [] };
 
 export const CMSProductsPage = () => {
   const [state, dispatch] = useReducer(productsReducer, initialState);
 
   async function getProductsHandler() {
     dispatch({ type: 'pending', payload: true });
-    const res = await pb.collection('products').getList<Product>();
-    dispatch({ type: 'getProductsSuccess', payload: res.items });
+    const res = await get();
+    dispatch({ type: 'productsGetSuccess', payload: res.items });
   }
 
   return (
