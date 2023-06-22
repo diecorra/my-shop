@@ -6,7 +6,7 @@ export const Spinner = () => {
   useEffect(() => {
     const debounce = setTimeout(() => {
       setShow(true);
-    }, 1000);
+    }, 250);
     return () => clearTimeout(debounce);
   }, [setShow]);
 

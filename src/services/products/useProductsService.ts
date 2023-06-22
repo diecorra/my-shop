@@ -46,7 +46,7 @@ export function useProductsService() {
     }
   }
 
-  function setActive(product: Product | {}) {
+  function setActiveItem(product: Product | {}) {
     dispatch({ type: 'productsSetActive', payload: product });
   }
 
@@ -60,7 +60,7 @@ export function useProductsService() {
       deleteProducts,
       addProducts,
       editProducts,
-      setActive,
+      setActiveItem,
       resetActiveItem,
     },
     state,
