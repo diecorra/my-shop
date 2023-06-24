@@ -41,6 +41,6 @@ export type ProductsActions =
   | ProductsDeleteSuccess
   | ProductsAddSuccess
   | ProductsEditSuccess
-  | ProductsSetSuccess
+  | ProductsSetActive
   | Error
   | Pending;
