@@ -47,6 +47,7 @@ export function productsReducer(state: ProductsState, action: ProductsActions) {
             item.id === payload.id ? payload : item
           ),
         ],
+        activeItem: null,
         error: null,
         pending: false,
       };
