@@ -10,7 +10,7 @@ export const ProductCard = (props: ProductCardProps) => {
   return (
     <div
       key={p.id}
-      className="bg-white text-black shadow-2xl rounded-xl overflow-hidden"
+      className="flex flex-col bg-white text-black shadow-2xl rounded-xl overflow-hidden"
     >
       {p.img && (
         <img src={p.img} alt={p.name} className="h-64 w-full object-cover" />
@@ -21,7 +21,7 @@ export const ProductCard = (props: ProductCardProps) => {
       </div>
       <p className="p-3">{p.description}</p>
       <button
-        className="bg-sky-600 text-white hover:bg-sky-800 transition w-full text-center font-bold p-3"
+        className="mt-auto bg-sky-600 text-white hover:bg-sky-800 transition w-full text-center font-bold p-3"
         onClick={() => props.onAddToCart()}
       >
         ADD TO CART
