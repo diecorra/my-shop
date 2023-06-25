@@ -51,11 +51,9 @@ export function CMSProductForm(props: CMSProductFormProps) {
   }
 
   function uploadHandler() {
-    openWidget()
-      .then((res) => {
-        setFormData((s) => ({ ...s, ...res }));
-      })
-      .catch(() => console.log('error'));
+    openWidget().then((res) => {
+      setFormData((s) => ({ ...s, ...res }));
+    });
   }
 
   const isNameValid = formData.name?.length;
@@ -90,7 +88,11 @@ export function CMSProductForm(props: CMSProductFormProps) {
         </div>
 
         {formData.img && (
-          <img src={formData.img} alt={formData.name} className="w-full" />
+          <img
+            src={formData.img}
+            alt={formData.name}
+            className="h-60 w-full object-cover"
+          />
         )}
 
         <div className="flex flex-col gap-3 mx-3 mt-16">
@@ -122,8 +124,6 @@ export function CMSProductForm(props: CMSProductFormProps) {
           </button>
         </div>
       </form>
-
-      <pre>{JSON.stringify(formData, null, 2)}</pre>
     </div>
   );
 }
