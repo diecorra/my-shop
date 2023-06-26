@@ -1,4 +1,4 @@
-import { OrderForm } from '@/model/order-form';
+import { OrderForm } from '@/model/order-model';
 import { selectCartList, selectTotalCartCost, useCart } from '@/services/cart';
 import { useOrdersService } from '@/services/orders';
 import { ClientResponseError } from 'pocketbase';

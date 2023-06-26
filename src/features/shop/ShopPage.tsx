@@ -1,10 +1,8 @@
-import { Product } from '@/model/product';
 import { useCart, useCartPanel } from '@/services/cart';
-import { ServerError, Spinner } from '@/shared/';
-import { useEffect, useState } from 'react';
-import { pb } from '../../pocketbase';
-import { ProductCard } from './components/ProductCard';
 import { useProductsService } from '@/services/products';
+import { ServerError, Spinner } from '@/shared/';
+import { useEffect } from 'react';
+import { ProductCard } from './components/ProductCard';
 
 export const ShopPage = () => {
   const openCartPanel = useCartPanel((state) => state.openOverlay);

@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
 import { useOrdersService } from '@/services/orders';
 import { ServerError, Spinner } from '@/shared';
+import { useEffect } from 'react';
 
 export function CMSOrdersPage() {
-  const { state, getOrders, deleteOrder, addOrder, toggleOrderStatus } =
+  const { state, getOrders, deleteOrder, toggleOrderStatus } =
     useOrdersService();
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export function CMSOrdersPage() {
                 </td>
                 <td className="text-left">
                   <div>Total: € {item.total}</div>
-                  <div>{item.order.length} products</div>
+                  <div>{item?.order?.length} products</div>
                 </td>
                 <td className="text-center">
                   {item.status === 'pending' && (
