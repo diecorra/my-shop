@@ -4,6 +4,8 @@ The application offers basic functionality: users can browse the product catalog
 
 Link: https://react-myshop.netlify.app
 
-CMS auth: user: sbiego95@gmail.com password: a6u75xAUaNjN@zf
+**CMS auth** <br>
+user: sbiego95@gmail.com <br>
+password: a6u75xAUaNjN@zf
 
 ![image](https://github.com/diecorra/my-shop/assets/32736570/728a03bb-1ab8-427f-8161-c959f3f1f153)
