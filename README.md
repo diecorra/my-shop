@@ -4,6 +4,12 @@ The application offers basic functionality: users can browse the product catalog
 
 Link: https://react-myshop.netlify.app
 
+### Library used
+- react-router-dom
+- tailwind
+- typescript
+- zustand
+
 **CMS auth** <br>
 user: sbiego95@gmail.com <br>
 password: a6u75xAUaNjN@zf
